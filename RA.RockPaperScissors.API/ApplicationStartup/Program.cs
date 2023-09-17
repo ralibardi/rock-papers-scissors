@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Antiforgery;
-using Microsoft.AspNetCore.Builder;
 using RA.RockPaperScissors.API.ApplicationStartup.Configuration;
-using static System.Net.Mime.MediaTypeNames;
 
 var builder = WebApplication.CreateBuilder(args);
 

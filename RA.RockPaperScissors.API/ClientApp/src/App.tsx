@@ -1,24 +1,38 @@
-import React from 'react';
-import './App.css';
+import React, { useEffect, useState } from "react";
+
+import { LeaderboardDto } from "./models";
+import { getLeaderboard, getPlayersBeforeGameStarts } from "./services";
+import { GameComponent } from "./components/Game";
+import { LeaderboardComponent } from "./components/Leaderboard";
+
+import "./App.scss";
 
 function App() {
+  const [leaderboard, setLeaderboard] = useState<LeaderboardDto | null>(null);
+  const [gameCounter, setGameCounter] = useState(0);
+
+  useEffect(() => {
+    if (gameCounter >= 0) {
+      getLeaderboard().then(setLeaderboard).catch(console.error);
+    } else {
+      getPlayersBeforeGameStarts().then(setLeaderboard).catch(console.error);
+    }
+  }, []);
+
+  function onResult() {
+    setGameCounter(gameCounter + 1);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={'./logo.svg'} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>{`Game ${gameCounter}`}</h1>
+      <div className="app__container">
+        {leaderboard?.players && (
+          <GameComponent leaderboard={leaderboard} onResult={onResult} />
+        )}
+        {leaderboard && <LeaderboardComponent leaderboard={leaderboard} />}
+      </div>
+    </>
   );
 }
 

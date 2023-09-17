@@ -8,16 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.22" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RA.RockPaperScissors.Domain\RA.RockPaperScissors.Domain.csproj" />
+    <ProjectReference Include="..\RA.RockPaperScissors.Infrastructure\RA.RockPaperScissors.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Extensions\" />
   </ItemGroup>
 

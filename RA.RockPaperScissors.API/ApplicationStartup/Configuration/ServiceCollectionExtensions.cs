@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Mapster;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json.Serialization;
 using RA.RockPaperScissors.API.Extensions;
 
 namespace RA.RockPaperScissors.API.ApplicationStartup.Configuration;
@@ -35,6 +34,9 @@ public static class ServiceCollectionExtensions
         services
             .AddOptions()
             .AddDependencies(configuration, environment.IsDevelopment());
+
+        // Mapper Registration
+        TypeAdapterConfig.GlobalSettings.Apply(new MapsterConfigRegistration());
 
         // In production, the React files will be served from this directory
         services.AddSpaStaticFiles(configuration => configuration.RootPath = "ClientApp/build");

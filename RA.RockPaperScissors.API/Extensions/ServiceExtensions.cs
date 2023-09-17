@@ -1,5 +1,8 @@
-﻿using Microsoft.Extensions.Options;
-using Swashbuckle.AspNetCore.SwaggerGen;
+﻿using RA.RockPaperScissors.Domain.Entities.LeaderboardAggregate;
+using RA.RockPaperScissors.Domain.Entities.PlayerAggregate;
+using RA.RockPaperScissors.Domain.Interfaces;
+using RA.RockPaperScissors.Domain.Services;
+using RA.RockPaperScissors.Infrastructure.Repositories;
 
 namespace RA.RockPaperScissors.API.Extensions;
 
@@ -11,13 +14,12 @@ public static class ServiceExtensions
         services.AddHttpContextAccessor();
 
         // Domain Services
-
-        // Strategies
-
-        // Integration Services
+        services.AddTransient<IPlayerDomainService, PlayerDomainService>();
+        services.AddTransient<ILeaderboardControllerDomainService, LeaderboardControllerDomainService>();
 
         // Repositories
-
+        services.AddTransient<IPlayerRepository, PlayerRepository>();
+        services.AddTransient<ILeaderboardRepository, LeaderboardRepository>();
 
         return services;
     }

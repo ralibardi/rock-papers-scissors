@@ -1,6 +1,5 @@
-﻿namespace RA.RockPaperScissors.API.ApplicationStartup.Configuration
+﻿namespace RA.RockPaperScissors.API.ApplicationStartup.Configuration;
+
+public class GlobalUsings
 {
-    public class GlobalUsings
-    {
-    }
 }
