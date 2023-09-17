@@ -9,9 +9,9 @@ namespace RA.RockPaperScissors.API.Controllers;
 public class LeaderboardController : BaseController.BaseController
 {
     private readonly ILogger<LeaderboardController> _logger;
-    private readonly ILeaderboardControllerDomainService _leaderboardDomainService;
+    private readonly ILeaderboardDomainService _leaderboardDomainService;
 
-    public LeaderboardController(ILogger<LeaderboardController> logger, ILeaderboardControllerDomainService leaderboardDomainService)
+    public LeaderboardController(ILogger<LeaderboardController> logger, ILeaderboardDomainService leaderboardDomainService)
     {
         _logger = logger;
         _leaderboardDomainService = leaderboardDomainService;
@@ -23,13 +23,13 @@ public class LeaderboardController : BaseController.BaseController
     {
         _logger.LogInformation(nameof(GetPlayers));
 
-        var player1 = PlayerDto.Create(1, 0, Models.Enums.RockPaperScissors.None, false);
-        var player2 = PlayerDto.Create(2, 0, Models.Enums.RockPaperScissors.None, false);
+        var player1 = new PlayerDto(1, 0, Models.Enums.RockPaperScissors.None, false);
+        var player2 = new PlayerDto(2, 0, Models.Enums.RockPaperScissors.None, false);
 
         var leaderboard = new LeaderboardDto
-        {
-            Players = new List<PlayerDto> { player1, player2 }
-        };
+        (
+            new List<PlayerDto> { player1, player2 }
+        );
 
         _leaderboardDomainService.SetLeaderboard(leaderboard.Adapt<Leaderboard>());
 

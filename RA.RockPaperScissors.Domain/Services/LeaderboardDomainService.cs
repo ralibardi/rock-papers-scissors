@@ -3,11 +3,11 @@ using RA.RockPaperScissors.Domain.Entities.LeaderboardAggregate;
 
 namespace RA.RockPaperScissors.Domain.Services;
 
-public class LeaderboardControllerDomainService : ILeaderboardControllerDomainService
+public class LeaderboardDomainService : ILeaderboardDomainService
 {
     private readonly ILeaderboardRepository _leaderboardRepository;
 
-    public LeaderboardControllerDomainService(ILeaderboardRepository leaderboardRepository)
+    public LeaderboardDomainService(ILeaderboardRepository leaderboardRepository)
     {
         _leaderboardRepository = leaderboardRepository;
     }

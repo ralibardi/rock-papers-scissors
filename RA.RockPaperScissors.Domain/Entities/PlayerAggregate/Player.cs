@@ -2,8 +2,6 @@
 
 public sealed class Player : IPlayer
 {
-    private Player() { }
-
     public int Id { get; private set; }
     public int Score { get; private set; }
     public Enums.RockPaperScissors LastMove { get; private set; }

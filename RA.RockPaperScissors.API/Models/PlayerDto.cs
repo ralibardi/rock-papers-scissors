@@ -7,11 +7,11 @@ public class PlayerDto
     public Enums.RockPaperScissors LastMove { get; set; }
     public bool IsHuman { get; set; }
 
-    public static PlayerDto Create(int id, int score, Enums.RockPaperScissors lastMove, bool isHuman) => new()
+    public PlayerDto(int id, int score, Enums.RockPaperScissors lastMove, bool isHuman)
     {
-        Id = id,
-        Score = score,
-        LastMove = lastMove,
-        IsHuman = isHuman
-    };
+        Id = id;
+        Score = score;
+        LastMove = lastMove;
+        IsHuman = isHuman;
+    }
 }

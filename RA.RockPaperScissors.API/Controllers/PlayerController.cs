@@ -11,14 +11,14 @@ public class PlayerController : BaseController.BaseController
     private readonly ILogger<PlayerController> _logger;
     private readonly IPlayerDomainService _playerDomainService;
 
-    public PlayerController(ILogger<PlayerController> logger, IPlayerDomainService playerDomainService, ILeaderboardControllerDomainService leaderboardDomainService)
+    public PlayerController(ILogger<PlayerController> logger, IPlayerDomainService playerDomainService, ILeaderboardDomainService leaderboardDomainService)
     {
         _logger = logger;
         _playerDomainService = playerDomainService;
     }
 
     [HttpPatch("{id}")]
-    [ProducesResponseType(typeof(PlayerDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(PlayerDto), StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
     public IActionResult PatchPlayer(int id, [FromBody] PlayerDto patchDto)
@@ -27,18 +27,18 @@ public class PlayerController : BaseController.BaseController
 
         _playerDomainService.SetPlayerToHuman(patchDto.Adapt<Player>());
 
-        return Ok();
+        return NoContent();
     }
 
     [HttpPost("match")]
     [ProducesResponseType(typeof(PlayerDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
-    public IActionResult PostMatch([FromBody] PlayerDto[] players)
+    public IActionResult PostMatch([FromBody] IEnumerable<PlayerDto> players)
     {
         _logger.LogInformation(nameof(PostMatch));
 
-        var winner = _playerDomainService.GetTurnResult(players[0].Adapt<Player>(), players[1].Adapt<Player>());
+        var winner = _playerDomainService.GetTurnResult(players.First().Adapt<Player>(), players.Last().Adapt<Player>());
 
         _playerDomainService.AddPlayerScore(winner);
 

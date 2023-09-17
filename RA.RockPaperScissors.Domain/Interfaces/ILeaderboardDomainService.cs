@@ -2,7 +2,7 @@
 
 namespace RA.RockPaperScissors.Domain.Interfaces;
 
-public interface ILeaderboardControllerDomainService
+public interface ILeaderboardDomainService
 {
     Leaderboard? GetLeaderboard();
     void SetLeaderboard(Leaderboard leaderboard);

@@ -15,7 +15,7 @@ public static class ServiceExtensions
 
         // Domain Services
         services.AddTransient<IPlayerDomainService, PlayerDomainService>();
-        services.AddTransient<ILeaderboardControllerDomainService, LeaderboardControllerDomainService>();
+        services.AddTransient<ILeaderboardDomainService, LeaderboardDomainService>();
 
         // Repositories
         services.AddTransient<IPlayerRepository, PlayerRepository>();

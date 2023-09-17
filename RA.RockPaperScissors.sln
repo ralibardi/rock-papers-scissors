@@ -9,6 +9,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RA.RockPaperScissors.Infras
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RA.RockPaperScissors.API", "RA.RockPaperScissors.API\RA.RockPaperScissors.API.csproj", "{120769CD-BBD1-4BAB-8DF3-276449B3C8A4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{A4775623-D2CC-46F3-B4C7-6C1879FADBFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8FF51D67-A324-4281-9EE0-C796F4C9751A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RA.RockPaperScissors.API.Tests", "RA.RockPaperScissors.API.Tests\RA.RockPaperScissors.API.Tests.csproj", "{201DC3F3-A927-4B7B-A543-95BABEA50A4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RA.RockPaperScissors.Domain.Tests", "RA.RockPaperScissors.Domain.Tests\RA.RockPaperScissors.Domain.Tests.csproj", "{BC2B66B0-DFEA-47F7-BA8C-96BE86D91CAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RA.RockPaperScissors.Infrastructure.Tests", "RA.RockPaperScissors.Infrastructure.Tests\RA.RockPaperScissors.Infrastructure.Tests.csproj", "{147B9635-82CE-4AA8-A24E-83AD50569022}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +37,29 @@ Global
 		{120769CD-BBD1-4BAB-8DF3-276449B3C8A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{120769CD-BBD1-4BAB-8DF3-276449B3C8A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{120769CD-BBD1-4BAB-8DF3-276449B3C8A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{201DC3F3-A927-4B7B-A543-95BABEA50A4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{201DC3F3-A927-4B7B-A543-95BABEA50A4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{201DC3F3-A927-4B7B-A543-95BABEA50A4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{201DC3F3-A927-4B7B-A543-95BABEA50A4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC2B66B0-DFEA-47F7-BA8C-96BE86D91CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC2B66B0-DFEA-47F7-BA8C-96BE86D91CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC2B66B0-DFEA-47F7-BA8C-96BE86D91CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC2B66B0-DFEA-47F7-BA8C-96BE86D91CAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{147B9635-82CE-4AA8-A24E-83AD50569022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{147B9635-82CE-4AA8-A24E-83AD50569022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{147B9635-82CE-4AA8-A24E-83AD50569022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{147B9635-82CE-4AA8-A24E-83AD50569022}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{70CFC727-A921-4C3D-BAA7-94CA15040C30} = {A4775623-D2CC-46F3-B4C7-6C1879FADBFB}
+		{4500B54C-5263-46FD-85B5-D1D985F56AD7} = {A4775623-D2CC-46F3-B4C7-6C1879FADBFB}
+		{120769CD-BBD1-4BAB-8DF3-276449B3C8A4} = {A4775623-D2CC-46F3-B4C7-6C1879FADBFB}
+		{201DC3F3-A927-4B7B-A543-95BABEA50A4B} = {8FF51D67-A324-4281-9EE0-C796F4C9751A}
+		{BC2B66B0-DFEA-47F7-BA8C-96BE86D91CAD} = {8FF51D67-A324-4281-9EE0-C796F4C9751A}
+		{147B9635-82CE-4AA8-A24E-83AD50569022} = {8FF51D67-A324-4281-9EE0-C796F4C9751A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7D93E061-CD12-493A-9726-0BAE0BA1404A}

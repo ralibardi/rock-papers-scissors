@@ -23,11 +23,7 @@ public class MapsterConfigRegistration : IRegister
     {
         config
             .NewConfig<Player, PlayerDto>()
-            .ConstructUsing(model => new PlayerDto
-            {
-                Id = model.Id,
-                Score = model.Score
-            });
+            .ConstructUsing(model => new PlayerDto(model.Id, model.Score, (Models.Enums.RockPaperScissors)(int)model.LastMove, model.IsHuman));
 
         config
             .NewConfig<PlayerDto, Player>()
@@ -35,13 +31,10 @@ public class MapsterConfigRegistration : IRegister
 
         config
             .NewConfig<Leaderboard, LeaderboardDto>()
-            .ConstructUsing(model => new LeaderboardDto
-            {
-                Players = model.Players.Adapt<PlayerDto[]>()
-            });
+            .ConstructUsing(model => new LeaderboardDto(model.Players.Adapt<IEnumerable<PlayerDto>>()));
 
         config
             .NewConfig<LeaderboardDto, Leaderboard>()
-            .ConstructUsing(model => Leaderboard.Create(model.Players.Adapt<List<Player>>()));
+            .ConstructUsing(model => Leaderboard.Create(model.Players.Adapt<IEnumerable<Player>>()));
     }
 }
