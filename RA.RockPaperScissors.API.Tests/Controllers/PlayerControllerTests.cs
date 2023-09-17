@@ -32,7 +32,7 @@ public class PlayerControllerTests
         var response = _playerController.PatchPlayer(_testPlayer.Id, patchPlayer);
 
         // Assert
-        response.Should().BeOfType<NoContentResult>();
+        response.Should().BeOfType<OkResult>();
     }
 
     [Fact]

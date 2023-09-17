@@ -27,7 +27,7 @@ public class PlayerController : BaseController.BaseController
 
         _playerDomainService.SetPlayerToHuman(patchDto.Adapt<Player>());
 
-        return NoContent();
+        return Ok();
     }
 
     [HttpPost("match")]
